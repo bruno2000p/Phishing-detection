@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+backend/**/__pycache__/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Local SQLite databases
+*.db
+backend/*.db
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
