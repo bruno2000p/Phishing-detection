@@ -1,10 +1,14 @@
+# Fix 1: Remove `base = "frontend"` so functions directory resolves from repo root.
+# With base="frontend", Netlify looked for functions at frontend/netlify/functions (wrong!).
+# Now it looks at netlify/functions (correct), which fixes the DOCTYPE/JSON parse error.
+
 [build]
-  base = "frontend"
-  publish = "dist"
-  command = "npm run build"
+  publish = "frontend/dist"
+  command = "cd frontend && npm run build"
 
 [functions]
   directory = "netlify/functions"
+  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/api/*"

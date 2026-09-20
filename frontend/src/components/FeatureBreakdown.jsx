@@ -103,19 +103,19 @@ export default function FeatureBreakdown({ result, onOpenReport }) {
             {signals.map((sig, idx) => (
               <div
                 key={idx}
-                className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start justify-between space-x-4 hover:border-slate-700 transition"
+                className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-start gap-3 hover:border-slate-700 transition"
               >
-                <div className="space-y-1">
-                  <div className="flex items-center space-x-2">
-                    <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${getSeverityBadge(sig.severity)}`}>
+                <div className="flex-1 min-w-0 space-y-1.5">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border flex-shrink-0 ${getSeverityBadge(sig.severity)}`}>
                       {sig.severity}
                     </span>
-                    <span className="text-xs text-slate-400 font-mono">[{sig.category}]</span>
-                    <h4 className="text-sm font-semibold text-white">{sig.title}</h4>
+                    <span className="text-[10px] text-slate-400 font-mono flex-shrink-0">[{sig.category}]</span>
                   </div>
-                  <p className="text-xs text-slate-400 pl-0.5">{sig.description}</p>
+                  <h4 className="text-sm font-semibold text-white break-words">{sig.title}</h4>
+                  <p className="text-xs text-slate-400 break-words leading-relaxed">{sig.description}</p>
                 </div>
-                <div className="font-mono text-xs font-bold text-rose-400 whitespace-nowrap bg-slate-950 px-2.5 py-1 rounded border border-slate-800">
+                <div className="font-mono text-xs font-bold text-rose-400 whitespace-nowrap bg-slate-950 px-2.5 py-1 rounded border border-slate-800 flex-shrink-0">
                   +{sig.points} pts
                 </div>
               </div>
