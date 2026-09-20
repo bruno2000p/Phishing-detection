@@ -9,7 +9,10 @@ import HistoryTable from './components/HistoryTable';
 import AuditReportModal from './components/AuditReportModal';
 import ApiDocsModal from './components/ApiDocsModal';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5050';
+// On Netlify: /api/* is rewritten to /.netlify/functions/* (no prefix needed).
+// Locally with `netlify dev`: same routing applies via the dev server.
+// Fallback to Python backend only when VITE_API_URL is explicitly set.
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('scanner');
@@ -211,7 +214,7 @@ export default function App() {
       <footer className="border-t border-slate-800/80 bg-slate-950/60 py-6 mt-12">
         <div className="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 font-mono space-y-1">
           <p>PhishGuard AI — Advanced Algorithmic Phishing & Fraud Prevention System</p>
-          <p className="text-[11px] text-slate-600">Built with React, Tailwind CSS, Python REST Engine, and SQLite</p>
+          <p className="text-[11px] text-slate-600">Built with React 18, Tailwind CSS, Netlify Serverless Functions & Node.js</p>
         </div>
       </footer>
 
